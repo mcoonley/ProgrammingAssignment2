@@ -1,4 +1,12 @@
- makeCacheMatrix<-function(x = matrix()){
+  ## The first function creates a special “matrix’ object that can cache its inverse.  
+## This matrix must be “square” (i.e. equal number of rows and columns).
+## This function is a looping list that 
+## Sets the value of the matrix
+## Gets the value of the matrix
+## Sets the value of the inverse
+## Gets the value of the inverse
+
+makeCacheMatrix<-function(x = matrix()){
     m<- NULL
     set<-function(y) {
       x<<-y
@@ -13,6 +21,12 @@
     
   }
   
+## The second function computes the inverse of the special “matrix” returned by makeCacheMatrix.  If the inverse has already been calculated (and the matrix has not changed), then the cacheSolve should retrieve the inverse from the cache.	
+## It calculates the inverse of the special matrix in the first function
+## But first checks to see if the inverse has already been calculated
+## If already calculated, then the inverse is retrieved form the cache without computation
+# Otherwise the inverse is computed and sets the value of the matrix using the setmatrix function
+
    cacheSolve <- function (x, ...) {
       m <-x$getmatrix()
       if(!is.null(m)){
@@ -25,17 +39,8 @@
       m
   }
 
-## The first function creates a special “matrix’ object that can cache its inverse.  
-## This matrix must be “square” (i.e. equal number of rows and columns).
-## This function is a looping list that 
-## Sets the value of the matrix
-## Gets the value of the matrix
-## Sets the value of the inverse
-## Gets the value of the inverse
 
-## The second function computes the inverse of the special “matrix” returned by makeCacheMatrix.  If the inverse has already been calculated (and the matrix has not changed), then the cacheSolve should retrieve the inverse from the cache.	
-## It calculates the inverse of the special matrix in the first function
-## But first checks to see if the inverse has already been calculated
-## If already calculated, then the inverse is retrieved form the cache without computation
 
-# Otherwise the inverse is computed and sets the value of the matrix using the setmatrix function
+
+
+
